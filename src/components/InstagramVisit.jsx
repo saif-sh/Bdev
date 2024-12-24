@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { Bvgld } from "../assets";
+import { BvGold } from "../assets";
 
 const InstagramVisit = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -105,7 +105,7 @@ const InstagramVisit = () => {
             <div 
               className="absolute inset-0 opacity-30"
               style={{
-                backgroundImage: `url(${Bvgld})`,
+                backgroundImage: `url(${BvGold})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 filter: 'grayscale(100%)',
