@@ -37,7 +37,7 @@ const Hero = () => {
       const deltaY = touchStart - touchY
 
       setScrollPosition(prev => {
-        const newPosition = Math.max(0, Math.min(800, prev + deltaY * 0.8))
+        const newPosition = Math.max(0, Math.min(800, prev + deltaY * 2.5))
         if (newPosition >= 800) {
           setIsTextLocked(false)
         }
