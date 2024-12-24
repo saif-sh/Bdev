@@ -4,7 +4,7 @@ import Navdark from "./Navdark";
 import Navbl from "./Navbl";
 import FavoriteCategorySection from "./FavoriteCategoryCard";
 import Massagelist from "./Massagelist";
-import { default as AbtHero } from './abthero';
+import { default as AbtHero } from './AbtHero';
 import SpaBanner from "./SpaBanner";
 import OurMission from "./OurMission";
 import TreatmentCard from "./TreatmentCard";
