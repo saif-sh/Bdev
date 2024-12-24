@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 const Hero = () => {
   const [scrollPosition, setScrollPosition] = useState(0)
   const [isTextLocked, setIsTextLocked] = useState(true)
-  const [touchStart, setTouchStart] = useState(null)
   const containerRef = useRef(null)
+  const [touchStart, setTouchStart] = useState(null)
 
   useEffect(() => {
     const container = containerRef.current
@@ -48,9 +48,8 @@ const Hero = () => {
     }
 
     container.addEventListener('wheel', handleWheel, { passive: false })
-    container.addEventListener('touchstart', handleTouchStart, { passive: true })
+    container.addEventListener('touchstart', handleTouchStart, { passive: false })
     container.addEventListener('touchmove', handleTouchMove, { passive: false })
-
     return () => {
       container.removeEventListener('wheel', handleWheel)
       container.removeEventListener('touchstart', handleTouchStart)
