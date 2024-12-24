@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const Hero = () => {
   const [scrollPosition, setScrollPosition] = useState(0)
   const [isTextLocked, setIsTextLocked] = useState(true)
+  const [touchStart, setTouchStart] = useState(null)
   const containerRef = useRef(null)
 
   useEffect(() => {
@@ -24,9 +25,38 @@ const Hero = () => {
       }
     }
 
+    const handleTouchStart = (e) => {
+      setTouchStart(e.touches[0].clientY)
+    }
+
+    const handleTouchMove = (e) => {
+      if (!touchStart || !isTextLocked) return
+
+      e.preventDefault()
+      const touchY = e.touches[0].clientY
+      const deltaY = touchStart - touchY
+
+      setScrollPosition(prev => {
+        const newPosition = Math.max(0, Math.min(800, prev + deltaY * 0.8))
+        if (newPosition >= 800) {
+          setIsTextLocked(false)
+        }
+        return newPosition
+      })
+      
+      setTouchStart(touchY)
+    }
+
     container.addEventListener('wheel', handleWheel, { passive: false })
-    return () => container.removeEventListener('wheel', handleWheel)
-  }, [isTextLocked])
+    container.addEventListener('touchstart', handleTouchStart, { passive: true })
+    container.addEventListener('touchmove', handleTouchMove, { passive: false })
+
+    return () => {
+      container.removeEventListener('wheel', handleWheel)
+      container.removeEventListener('touchstart', handleTouchStart)
+      container.removeEventListener('touchmove', handleTouchMove)
+    }
+  }, [isTextLocked, touchStart])
 
   const titleTransform = `translate(-50%, ${Math.max(-100, 180 - scrollPosition * 0.4)}%)`
   const subtitleTransform = `translate(-50%, ${Math.max(-100, 270 - scrollPosition * 0.4)}%)`
