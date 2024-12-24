@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { BvGold } from "../assets";
 
 const InstagramVisit = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -102,17 +101,7 @@ const InstagramVisit = () => {
               ease: [0.23, 1, 0.32, 1] 
             }}
           >
-            <div 
-              className="absolute inset-0 opacity-30"
-              style={{
-                backgroundImage: `url(${BvGold})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                filter: 'grayscale(100%)',
-              }}
-            />
-            
-            <div className="relative h-full flex flex-col items-center justify-center p-8 bg-[#333333]/80">
+            <div className="relative h-full flex flex-col items-center justify-center p-8 bg-[#333333]">
               <h2 className="text-white text-2xl font-serif mb-3">Visit Our</h2>
               <h3 className="text-white text-xl font-serif mb-6">Instagram Page</h3>
               <FontAwesomeIcon 

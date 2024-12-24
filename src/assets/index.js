@@ -8,10 +8,8 @@ import pinkleaf from "./pink-leaf.svg"
 import BVgl from "./BVgl.png"
 import greenleaf1 from "./greenleaf1.svg"
 import pinkleaf1 from "./pinkleaf1.svg"
-import BvGold from './BvGold.png'
 
 export{
-    BvGold,
     greenleaf1,
     pinkleaf1,
     BVgl,
