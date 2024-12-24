@@ -15,6 +15,7 @@ import { default as FloatingSocials } from './FloatingSocials';
 import { default as SocialFeed } from './SocialFeed';
 import { default as InstagramVisit } from './InstagramVisit';
 import { default as AnnouncementBar } from './AnnouncementBar';
+import { default as MobileNavigation } from './MobileNavigation';
 
 export{
     ContactForm,
@@ -34,5 +35,6 @@ export{
     SocialFeed,
     InstagramVisit,
     AnnouncementBar,
+    MobileNavigation,
     
 }

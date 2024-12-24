@@ -30,7 +30,7 @@ const Modal = ({ isOpen, onClose, treatment }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-black/80 backdrop-blur-md flex justify-center items-center z-50 p-6"
+      className="fixed inset-0 bg-black/80 backdrop-blur-md flex justify-center items-center z-50 p-4 sm:p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -38,7 +38,7 @@ const Modal = ({ isOpen, onClose, treatment }) => {
       onClick={handleOverlayClick}
     >
       <motion.div
-        className="relative w-full max-w-5xl bg-gradient-to-br from-white/95 to-white/90 backdrop-blur rounded-[3rem] shadow-2xl overflow-hidden"
+        className="relative w-full max-w-5xl bg-gradient-to-br from-white/95 to-white/90 backdrop-blur rounded-[2rem] sm:rounded-[3rem] shadow-2xl overflow-hidden"
         initial={{ scale: 0.9, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -52,35 +52,35 @@ const Modal = ({ isOpen, onClose, treatment }) => {
         <div className="absolute top-0 left-0 w-96 h-96 bg-purple-200 rounded-full filter blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-200 rounded-full filter blur-3xl opacity-20 translate-x-1/2 translate-y-1/2"></div>
 
-        <div className="grid grid-cols-2 gap-8 p-12 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 p-6 sm:p-8 md:p-12 relative">
           {/* Left Content Section */}
           <motion.div
-            className="space-y-8"
+            className="space-y-6 md:space-y-8"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
             <div>
               <motion.h2 
-                className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 mb-4"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
                 {treatment?.title}
               </motion.h2>
-              <div className="flex gap-3">
-                <span className="px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-sm font-medium">
+              <div className="flex flex-wrap gap-2 sm:gap-3">
+                <span className="px-3 sm:px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-xs sm:text-sm font-medium">
                   Luxury Treatment
                 </span>
-                <span className="px-4 py-1.5 bg-purple-50 text-purple-600 rounded-lg text-sm font-medium">
+                <span className="px-3 sm:px-4 py-1.5 bg-purple-50 text-purple-600 rounded-lg text-xs sm:text-sm font-medium">
                   Premium Care
                 </span>
               </div>
             </div>
 
             <motion.p 
-              className="text-gray-600 text-lg leading-relaxed"
+              className="text-base sm:text-lg text-gray-600 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -89,7 +89,7 @@ const Modal = ({ isOpen, onClose, treatment }) => {
             </motion.p>
 
             <motion.div 
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-3 sm:gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -118,7 +118,7 @@ const Modal = ({ isOpen, onClose, treatment }) => {
 
           {/* Right Image Section */}
           <motion.div
-            className="relative h-[600px] rounded-2xl overflow-hidden"
+            className="relative h-[300px] sm:h-[400px] md:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden order-first md:order-last"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
@@ -152,14 +152,14 @@ const Modal = ({ isOpen, onClose, treatment }) => {
 
         {/* Close Button */}
         <motion.button
-          className="absolute top-8 right-8 bg-white/90 backdrop-blur text-gray-700 rounded-full p-3 shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300"
+          className="absolute top-4 right-4 sm:top-8 sm:right-8 bg-white/90 backdrop-blur text-gray-700 rounded-full p-2 sm:p-3 shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300"
           onClick={onClose}
           whileHover={{ rotate: 90 }}
           transition={{ duration: 0.2 }}
         >
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
-            className="h-6 w-6" 
+            className="h-5 w-5 sm:h-6 sm:w-6" 
             fill="none" 
             viewBox="0 0 24 24" 
             stroke="currentColor"
