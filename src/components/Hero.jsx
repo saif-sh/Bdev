@@ -141,7 +141,7 @@ const Hero = () => {
               text-[#F2D9B6] [text-shadow:_1px_1px_4px_rgba(0,0,0,0.2)]
               tracking-wide leading-relaxed"
           >
-            Surrender To Ultimate Relaxation
+            Indulge in Luxury, Wellness, and Serenity
           </h2>
           
           <h3 
@@ -150,7 +150,7 @@ const Hero = () => {
               font-light leading-loose
               [text-shadow:_1px_1px_2px_rgba(0,0,0,0.15)]"
           >
-            All Days of the Week
+            Open daily for YOU
           </h3>
         </div>
         

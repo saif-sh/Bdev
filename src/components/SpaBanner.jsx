@@ -79,7 +79,7 @@ const SpaBanner = () => {
     }
   };
 
-  const titleWords = ["HEAVENLY", "SPA. LUXURY", "TREATMENTS", "FOR BODY &", "HEALTH"];
+  const titleWords = ["SERENE", "LUXURY RETREAT", "EXPERIENCES", "FOR MIND &", "WELLNESS"];
 
   return (
     <motion.div
@@ -142,7 +142,7 @@ const SpaBanner = () => {
             transition: { duration: 0.3, ease: "easeOut" }
           }}
         >
-          Bella Vida Spa
+          Bella Vida
         </motion.span>
       </motion.div>
 

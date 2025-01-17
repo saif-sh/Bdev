@@ -70,37 +70,33 @@ const OurMission = () => {
               <div className="w-1 xs:w-1.5 sm:w-2 h-1 xs:h-1.5 sm:h-2 rounded-full bg-[#dfc9a9]" />
               <div className="w-6 xs:w-8 sm:w-12 md:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#dfc9a9]" />
             </div>
-            
+
             <div className="space-y-4 xs:space-y-5 sm:space-y-6">
               <p className="text-[13px] xs:text-[14px] sm:text-[16px] md:text-[18px] 
-                         px-2 sm:px-6 md:px-10 
-                         font-MongolianBaiti text-[#2a2a2a] 
-                         leading-[1.6] xs:leading-[1.7] sm:leading-[1.8] 
-                         tracking-wide max-w-4xl mx-auto">
-                At Bella Vida Family Spa, we cultivate an extraordinary sanctuary of tranquility 
-                and luxury. Our mission is to create transformative experiences that nurture the 
-                body, uplift the spirit, and strengthen family bonds through the art of wellness.
+             px-2 sm:px-6 md:px-10 
+             font-MongolianBaiti text-[#2a2a2a] 
+             leading-[1.6] xs:leading-[1.7] sm:leading-[1.8] 
+             tracking-wide max-w-4xl mx-auto">
+                At Bella Vida Family Spa, located in the heart of Bandra West, we are dedicated to providing premium spa and massage services that deliver the ultimate state of relaxation. Our mission is to create a soothing sanctuary where every sight, aroma, texture, and atmosphere is designed to nurture your body and mind.
               </p>
-              
+
               <p className="text-[13px] xs:text-[14px] sm:text-[16px] md:text-[18px] 
-                         px-2 sm:px-6 md:px-10 
-                         font-MongolianBaiti text-[#2a2a2a] 
-                         leading-[1.6] xs:leading-[1.7] sm:leading-[1.8] 
-                         tracking-wide max-w-4xl mx-auto">
-                In our serene haven, every detail is thoughtfully curated to foster moments of 
-                connection and rejuvenation. From our expert therapists to our premium amenities, 
-                we maintain an unwavering commitment to excellence in every aspect of your experience.
+             px-2 sm:px-6 md:px-10 
+             font-MongolianBaiti text-[#2a2a2a] 
+             leading-[1.6] xs:leading-[1.7] sm:leading-[1.8] 
+             tracking-wide max-w-4xl mx-auto">
+                With expert therapists skilled in the art of rejuvenation, we focus on healing with compassion, bringing you balance, harmony, and good health. Our diverse treatments not only nurture the body but also uplift the spirit, helping you to feel truly restored.
               </p>
-              
+
               <p className="text-[13px] xs:text-[14px] sm:text-[16px] md:text-[18px] 
-                         px-2 sm:px-6 md:px-10 
-                         font-MongolianBaiti text-[#2a2a2a]/90 
-                         leading-[1.6] xs:leading-[1.7] sm:leading-[1.8] 
-                         tracking-wide max-w-4xl mx-auto italic">
-                Embark on a journey where timeless healing traditions blend seamlessly with modern 
-                luxury, creating an oasis of peace and restoration for your entire family.
+             px-2 sm:px-6 md:px-10 
+             font-MongolianBaiti text-[#2a2a2a]/90 
+             leading-[1.6] xs:leading-[1.7] sm:leading-[1.8] 
+             tracking-wide max-w-4xl mx-auto italic">
+                Step into a world where timeless healing traditions blend seamlessly with modern luxury. Experience an oasis of peace and restoration for your entire family, and embark on a journey of ultimate relaxation and well-being.
               </p>
             </div>
+
           </div>
         </div>
       </div>

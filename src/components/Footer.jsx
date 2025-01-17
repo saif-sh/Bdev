@@ -1,12 +1,14 @@
 import React from "react";
-import { footerlogo } from "../assets";
+import { footerlogo, map } from "../assets";
 
 const Footer = () => {
   const locationUrl = "https://www.google.com/maps/dir//Bella+Vida+Family+Spa..."; // URL shortened for brevity
+  const instagramUrl = "https://www.instagram.com/bellavidafamilyspa"; // Update with actual Instagram URL
+  const facebookUrl = "https://www.facebook.com/your-facebook-page"; // Update with actual Facebook URL
 
   return (
     <footer className="bg-[#3A4443] text-white font-serif py-8 sm:py-12">
-      <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+      <div className="container mx-auto px-4 pr-0 sm:px-8 md:px-16 lg:px-24">
         {/* Mobile Logo - Only visible on mobile */}
         <div className="flex justify-center mb-8 sm:hidden">
           <img
@@ -25,10 +27,18 @@ const Footer = () => {
               <div className="space-y-3">
                 <h5 className="font-semibold text-lg mb-4">Navigation</h5>
                 <ul className="space-y-2">
-                  <li className="hover:underline cursor-pointer">Home</li>
-                  <li className="hover:underline cursor-pointer">About</li>
-                  <li className="hover:underline cursor-pointer">Services</li>
-                  <li className="hover:underline cursor-pointer">Gallery</li>
+                  <li className="hover:underline cursor-pointer">
+                    <a href="/home">Home</a>
+                  </li>
+                  <li className="hover:underline cursor-pointer">
+                    <a href="/about">About</a>
+                  </li>
+                  <li className="hover:underline cursor-pointer">
+                    <a href="/treatments">Treatments</a>
+                  </li>
+                  <li className="hover:underline cursor-pointer">
+                    <a href="/contact">Contact Us</a>
+                  </li>
                 </ul>
               </div>
               
@@ -36,10 +46,10 @@ const Footer = () => {
               <div className="text-base">
                 <h5 className="font-semibold text-lg mb-4">Location</h5>
                 <address className="not-italic space-y-1">
-                  <p>Bandra - w,</p>
-                  <p>Carter road,</p>
-                  <p>near Rizvi College</p>
-                  <p>of Engineering</p>
+                  <p>Bandra - W,</p>
+                  <p>Carter Road,</p>
+                  <p>Near Rizvi College</p>
+                  <p>Of Engineering</p>
                 </address>
               </div>
             </div>
@@ -48,16 +58,24 @@ const Footer = () => {
             <div className="sm:hidden">
               <h5 className="font-semibold text-lg mb-4">Follow Us</h5>
               <div className="flex flex-wrap gap-3">
-                {['Instagram', 'Facebook', 'Twitter', 'Youtube'].map((social) => (
-                  <a 
-                    key={social}
-                    href="#" 
-                    className="px-4 py-2 bg-white/10 rounded-full text-sm hover:bg-white/20 
-                      transition-colors duration-300"
-                  >
-                    {social}
-                  </a>
-                ))}
+                <a
+                  href={instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-white/10 rounded-full text-sm hover:bg-white/20 
+                    transition-colors duration-300"
+                >
+                  Instagram
+                </a>
+                <a
+                  href={facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-white/10 rounded-full text-sm hover:bg-white/20 
+                    transition-colors duration-300"
+                >
+                  Facebook
+                </a>
               </div>
             </div>
           </div>
@@ -74,7 +92,7 @@ const Footer = () => {
               hover:shadow-xl transition-shadow duration-300">
               <a href={locationUrl} target="_blank" rel="noopener noreferrer">
                 <img
-                  src={`https://maps.googleapis.com/maps/api/staticmap?center=Rizvi+College+of+Engineering,+Bandra+West,+Mumbai&zoom=15&size=150x150&maptype=roadmap&markers=color:red%7C19.0598,72.8294&key=YOUR_API_KEY`}
+                  src={map}
                   alt="Map Preview"
                   className="w-full h-full object-cover"
                 />
@@ -86,21 +104,31 @@ const Footer = () => {
           <div className="w-full md:w-auto space-y-4">
             <h4 className="font-bold text-xl">About Us</h4>
             <p className="text-green-400 leading-relaxed text-sm sm:text-base">
-              Lorem ipsum dolor sit amet consectetur.
+              Bella Vida Family Spa in Bandra West.
               <br />
-              Fringilla gravida tempus donec neque gravida.
+              Luxurious treatments to rejuvenate mind.
               <br />
-              A iaculis sed. Magnis viverra magna ridiculus.
+              Expert therapists restore balance.
             </p>
             <div className="flex flex-wrap gap-3">
-              <button className="flex-1 sm:flex-none border border-white px-4 py-2 rounded-full 
-                hover:bg-white hover:text-[#3A4443] transition-colors duration-300">
+              <a
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 sm:flex-none border border-white px-4 py-2 rounded-full 
+                  hover:bg-white hover:text-[#3A4443] transition-colors duration-300"
+              >
+                Instagram
+              </a>
+              <a
+                href={facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 sm:flex-none border border-white px-4 py-2 rounded-full 
+                  hover:bg-white hover:text-[#3A4443] transition-colors duration-300"
+              >
                 Facebook
-              </button>
-              <button className="flex-1 sm:flex-none border border-white px-4 py-2 rounded-full 
-                hover:bg-white hover:text-[#3A4443] transition-colors duration-300">
-                LinkedIn
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -110,11 +138,22 @@ const Footer = () => {
           <div className="border-t-2 border-white/20" />
           <div className="flex justify-center sm:justify-around items-center text-sm sm:text-base 
             gap-4 sm:gap-0 py-4">
-            {['Instagram', 'Facebook', 'Twitter', 'Youtube'].map((social) => (
-              <a key={social} href="#" className="hover:text-green-400 transition-colors duration-300">
-                {social}
-              </a>
-            ))}
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-green-400 transition-colors duration-300"
+            >
+              Instagram
+            </a>
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-green-400 transition-colors duration-300"
+            >
+              Facebook
+            </a>
           </div>
           <div className="border-t-2 border-white/20" />
         </div>
@@ -130,20 +169,9 @@ const Footer = () => {
 
           {/* Tagline */}
           <div className="text-center font-bold text-lg sm:text-xl order-first sm:order-none">
-            SURRENDER TO
+            INDULGE IN
             <br />
-            ULTIMATE RELAXATION
-          </div>
-
-          {/* Quick Links - Hidden on mobile */}
-          <div className="hidden sm:flex sm:justify-end">
-            <div className="space-y-1">
-              {['Home', 'About', 'Services', 'Gallery'].map((link) => (
-                <a key={link} href="#" className="block hover:text-green-400 transition-colors duration-300">
-                  {link}
-                </a>
-              ))}
-            </div>
+            LUXURY, WELLNESS & SERENITY
           </div>
         </div>
       </div>

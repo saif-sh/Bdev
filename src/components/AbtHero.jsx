@@ -74,10 +74,10 @@ const AbtHero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.span
-            className="block text-[#F2D9B6] text-xl tracking-[0.5em] uppercase font-MonotypeCorsiva mb-6"
+            className="block text-[#F2D9B6] text-xl tracking-[0.3rem] uppercase font-MonotypeCorsiva mb-6"
             variants={textVariants}
           >
-            Welcome to
+            Discover Our Story
           </motion.span>
   
           <motion.h1
@@ -103,9 +103,10 @@ const AbtHero = () => {
             className="text-xl md:text-2xl text-[#F2D9B6] leading-relaxed font-SpaceGrotesk max-w-3xl mx-auto mb-12"
             variants={textVariants}
           >
-            Discover the epitome of{" "}
-            <span className="font-medium italic">luxury</span> and{" "}
-            <span className="font-medium italic">tranquility</span>
+            Indulge in{" "}
+            <span className="font-medium italic">Luxury, </span>
+            <span className="font-medium italic">Wellness</span> and{" "}
+            <span className="font-medium italic">Serenity</span>
           </motion.p>
   
           <motion.div

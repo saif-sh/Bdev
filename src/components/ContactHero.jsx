@@ -92,7 +92,7 @@ const ContactHero = () => {
           <h2 className="text-sm text-[#333333] tracking-wider uppercase mb-4">ADDRESS:</h2>
           <p className="text-lg text-[#333333]">
             Opp Rizvi Law College,<br />
-            Bandra West, Mumbai
+            Bandra West, Mumbai 400050
           </p>
         </motion.div>
 
@@ -102,7 +102,7 @@ const ContactHero = () => {
         >
           <h2 className="text-sm text-[#333333] tracking-wider uppercase mb-4">OPENING HOURS:</h2>
           <p className="text-lg text-[#333333]">
-            Monday - Sunday 10AM - 10PM<br />
+            Monday - Sunday 11AM - 10PM<br />
             Open All Days of the Week
           </p>
         </motion.div>
@@ -113,10 +113,10 @@ const ContactHero = () => {
         >
           <h2 className="text-sm text-[#333333] tracking-wider uppercase mb-4">CONTACT US:</h2>
           <a href="tel:02045475467" className="text-lg text-[#333333] hover:text-[#555] block">
-            +91 99813 45670
+            +91 98205 51300
           </a>
           <a href="mailto:info@7skuspa.co.uk" className="text-lg text-[#333333] hover:text-[#555]">
-            Bellavidafamilyspa@gmail.com
+            bellavidafamilyspa@gmail.com
           </a>
         </motion.div>
       </div>

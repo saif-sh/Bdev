@@ -11,18 +11,22 @@ const Treatments = () => {
 
   // Define filter categories
   const filterCategories = [
-    { id: "ALL", label: "All Treatments" },
-    { id: "MASSAGE", label: "Massages" },
-    { id: "COUPLES", label: "Couples" },
-    { id: "SCRUB", label: "Scrub" },
-    { id: "SPECIAL", label: "Specials" },
-    { id: "OFFERS", label: "Offers" },
+    { id: "ALL", label: "All TREATMENTS" },
+    { id: "LIGHT", label: "LIGHT PRESSURE" },
+    { id: "MEDIUM", label: "MEDIUM PRESSURE" },
+    { id: "HARD", label: "HARD PRESSURE" },
+    { id: "COUPLES", label: "COUPLES" },
+    { id: "SCRUB", label: "SCRUB" },
+    { id: "SPECIAL", label: "SPECIALS" },
   ];
 
   // Filter treatments based on selected category
   const filteredTreatments = treatments.filter((treatment) => {
     if (activeFilter === "ALL") return true;
-    return treatment.category === activeFilter;
+    if (Array.isArray(treatment.category)) {
+      return treatment.category.includes(activeFilter); // Handle array categories
+    }
+    return treatment.category === activeFilter; // Handle string categories
   });
 
   const handleLearnMore = (treatment) => {
@@ -62,8 +66,8 @@ const Treatments = () => {
                 <motion.button
                   key={category.id}
                   className={`flex-none md:flex-1 px-6 md:px-0 h-12 rounded-full flex items-center justify-center text-sm font-medium cursor-pointer transition-all duration-300 whitespace-nowrap
-                    ${activeFilter === category.id 
-                      ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg" 
+                    ${activeFilter === category.id
+                      ? "bg-gradient-to-r from-[#5c6f6d] to-[#8ca3a1] text-white shadow-lg"
                       : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                     }`}
                   onClick={() => setActiveFilter(category.id)}
@@ -79,7 +83,7 @@ const Treatments = () => {
         </div>
 
         {/* Treatment cards grid */}
-        <motion.div 
+        <motion.div
           className="max-w-7xl mx-auto mt-9 pb-12 px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 place-items-center"
           layout
         >

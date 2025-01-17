@@ -50,11 +50,11 @@ const Navbar = () => {
               </span>
               <span className="flex items-center text-gray-700">
                 <Clock className="h-5 w-5 mr-2" />
-                All Days 10 - 22
+                11 AM - 10 PM
               </span>
               <span className="flex items-center text-gray-700">
                 <Phone className="h-5 w-5 mr-2" />
-                +91 9981345670
+                +91 98205 51300
               </span>
             </div>
           </div>

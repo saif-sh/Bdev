@@ -42,16 +42,20 @@ const Navbl = () => {
 
           {/* Location and Contact Info */}
           <div className="flex items-center space-x-10">
-            <span className="flex items-center">
-              <MapPin className="h-5 w-5 mr-2" /> Bandra (W)
-            </span>
-            <span className="flex items-center">
-              <Clock className="h-5 w-5 mr-2" /> All Days 10 - 22
-            </span>
-            <span className="flex items-center">
-              <Phone className="h-5 w-5 mr-2" /> +91 9981345670
-            </span>
-          </div>
+  <span className="flex items-center">
+    <MapPin className="h-5 w-5 mr-2" /> Bandra (W)
+  </span>
+  <span className="flex items-center">
+    <Clock className="h-5 w-5 mr-2" /> 11 AM - 10 PM
+  </span>
+  <span className="flex items-center">
+    <Phone className="h-5 w-5 mr-2" /> 
+    <a href="tel:+919820551300" className="hover:underline">
+      +91 98205 51300
+    </a>
+  </span>
+</div>
+
         </div>
       </div>
 

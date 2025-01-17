@@ -73,7 +73,7 @@ const FavoriteCategorySection = () => {
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-MongolianBaiti text-[#2F4F4F] leading-tight">
-            Choose your<br />Favorite Category
+          Unwind with <br />The Benefits of Massage
           </h2>
         </motion.div>
 

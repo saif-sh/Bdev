@@ -14,7 +14,10 @@ const MobileNavigation = ({
     <nav className={`relative ${bgColor} font-nunito font-medium ${textColor} text-[16px] shadow-sm`}>
       <div className="px-4 py-3">
         <div className="flex items-center justify-between">
-          <img className="h-12 w-12 rounded-full" src={logoSrc} alt="Logo" />
+          {/* Logo with link to home */}
+          <a href="/" aria-label="Home">
+            <img className="h-12 w-12 rounded-full" src={logoSrc} alt="Logo" />
+          </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`p-2 rounded-md ${textColor} hover:bg-opacity-10 hover:bg-gray-700 focus:outline-none`}
@@ -54,11 +57,11 @@ const MobileNavigation = ({
               className={`flex items-center ${textColor} hover:bg-opacity-10 hover:bg-gray-700`}
             >
               <Phone className="h-5 w-5 mr-3" />
-              <span>+91 9981345670</span>
+              <span>+91 98205 51300</span>
             </a>
             <div className={`flex items-center ${textColor}`}>
               <Clock className="h-5 w-5 mr-3" />
-              <span>All Days 10 - 22</span>
+              <span>11 AM - 10 PM</span>
             </div>
           </div>
         </div>
@@ -67,4 +70,4 @@ const MobileNavigation = ({
   );
 };
 
-export default MobileNavigation; 
+export default MobileNavigation;

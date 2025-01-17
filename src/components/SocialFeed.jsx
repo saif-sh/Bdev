@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaInstagram, FaHeart, FaComment } from 'react-icons/fa';
+import { coupost, maspost1, maspost2 } from '../assets';
 
 const SocialFeed = () => {
   const [posts, setPosts] = useState([]);
@@ -10,23 +11,23 @@ const SocialFeed = () => {
   const mockPosts = [
     {
       id: 1,
-      image: "https://source.unsplash.com/random/800x800/?luxury-spa&1",
-      likes: 324,
-      comments: 18,
+      image: coupost,
+      likes: 10,
+      comments: 1,
       caption: "Experience pure bliss with our signature massage treatment ✨ #luxuryspa #wellness",
     },
     {
       id: 2,
-      image: "https://source.unsplash.com/random/800x800/?massage-spa&2",
-      likes: 256,
-      comments: 24,
+      image: maspost1,
+      likes: 20,
+      comments: 2,
       caption: "Tranquility awaits in our premium therapy rooms 🌿 #spatreatment #relaxation",
     },
     {
       id: 3,
-      image: "https://source.unsplash.com/random/800x800/?spa-treatment&3",
-      likes: 412,
-      comments: 32,
+      image: maspost2,
+      likes: 25,
+      comments: 1,
       caption: "Indulge in our aromatherapy massage experience 🌺 #wellness #luxurytreatment",
     }
   ];
@@ -171,7 +172,7 @@ const SocialFeed = () => {
         )}
 
         <motion.a
-          href="https://instagram.com/youraccount"
+          href="https://instagram.com/bellavidafamilyspa"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-12 mx-auto block w-fit"
