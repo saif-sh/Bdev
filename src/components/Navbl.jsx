@@ -24,47 +24,52 @@ const Navbl = () => {
   ];
 
   const DesktopNav = () => (
-    <nav className="relative font-nunito font-semibold text-black text-[16px]">
-      <div className="mx-2 mt-0 px-4 sm:px-6 lg:px-20">
-        <div className="flex items-center justify-between h-24">
-          {/* Navigation Items */}
-          <div className="flex items-start space-x-6">
+    <nav className="relative font-nunito font-semibold text-black text-[14px] sm:text-[15px] md:text-[16px] mb-2">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-3 items-center h-24">
+          {/* All Navigation Links on Left */}
+          <div className="flex justify-start items-center gap-2 xs:gap-3 sm:gap-4">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="hover:text-gray-500 px-6 py-3 rounded-md"
+                className="hover:text-gray-500 px-2 xs:px-3 sm:px-4 py-2 rounded-md transition-colors duration-200 whitespace-nowrap z-20"
               >
                 {item.name}
               </a>
             ))}
           </div>
 
-          {/* Location and Contact Info */}
-          <div className="flex items-center space-x-10">
-  <span className="flex items-center">
-    <MapPin className="h-5 w-5 mr-2" /> Bandra (W)
-  </span>
-  <span className="flex items-center">
-    <Clock className="h-5 w-5 mr-2" /> 11 AM - 10 PM
-  </span>
-  <span className="flex items-center">
-    <Phone className="h-5 w-5 mr-2" /> 
-    <a href="tel:+919820551300" className="hover:underline">
-      +91 98205 51300
-    </a>
-  </span>
-</div>
+          {/* Center Logo */}
+          <div className="flex justify-center items-center">
+            <div className="relative -mb-16 z-10">
+              <img
+                className="w-[5rem] h-[5rem] xs:w-[6rem] xs:h-[6rem] sm:w-[7rem] sm:h-[7rem] md:w-[8rem] md:h-[8rem] rounded-full shadow-lg transition-all duration-300"
+                src={lghome}
+                alt="Bella Vida"
+              />
+            </div>
+          </div>
 
+          {/* Contact Info on Right */}
+          <div className="flex justify-end items-center gap-3 xs:gap-4 sm:gap-6">
+            <span className="flex items-center whitespace-nowrap cursor-pointer z-20">
+              <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" /> 
+              <span className="hidden xs:inline">Bandra (W)</span>
+              <span className="xs:hidden">Bandra</span>
+            </span>
+            <span className="hidden sm:flex items-center whitespace-nowrap z-20">
+              <Clock className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" /> 
+              <span>11 AM - 10 PM</span>
+            </span>
+            <span className="flex items-center whitespace-nowrap z-20">
+              <Phone className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" /> 
+              <a href="tel:+919820551300" className="hover:underline transition-colors duration-200">
+                +91 98205 51300
+              </a>
+            </span>
+          </div>
         </div>
-      </div>
-
-      <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-[4.5rem] z-10">
-        <img
-          className="size-[8rem] rounded-full shadow-lg"
-          src={lghome}
-          alt="Bella Vida"
-        />
       </div>
     </nav>
   );

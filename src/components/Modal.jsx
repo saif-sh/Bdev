@@ -11,26 +11,19 @@ const Modal = ({ isOpen, onClose, treatment }) => {
   };
 
   const handleBookNow = () => {
-    // Phone number format: international code without '+' symbol
-    const phoneNumber = '919820551300'; // Updated WhatsApp number
-    
-    // Create the message template
+    const phoneNumber = '919820551300';
     const message = encodeURIComponent(
       `Hi, I would like to book a session for ${treatment?.title}.\n\n` +
       `Treatment Details: ${treatment?.detailedDescription?.slice(0, 100)}...\n\n` +
       `Please help me schedule an appointment.`
     );
-
-    // Create WhatsApp URL
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-
-    // Open WhatsApp in a new tab
     window.open(whatsappUrl, '_blank');
   };
 
   return (
     <motion.div
-      className="fixed inset-0 bg-black/80 backdrop-blur-md flex justify-center items-center z-50 p-4 sm:p-6"
+      className="fixed inset-0 bg-black/80 backdrop-blur-md flex justify-center items-center z-50 p-2 xs:p-3 sm:p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -38,7 +31,7 @@ const Modal = ({ isOpen, onClose, treatment }) => {
       onClick={handleOverlayClick}
     >
       <motion.div
-        className="relative w-full max-w-5xl bg-gradient-to-br from-white/95 to-white/90 backdrop-blur rounded-[2rem] sm:rounded-[3rem] shadow-2xl overflow-hidden"
+        className="relative w-full max-w-5xl bg-gradient-to-br from-white/95 to-white/90 backdrop-blur rounded-xl xs:rounded-2xl sm:rounded-[3rem] shadow-2xl overflow-hidden"
         initial={{ scale: 0.9, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -52,35 +45,35 @@ const Modal = ({ isOpen, onClose, treatment }) => {
         <div className="absolute top-0 left-0 w-96 h-96 bg-purple-200 rounded-full filter blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-200 rounded-full filter blur-3xl opacity-20 translate-x-1/2 translate-y-1/2"></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 p-6 sm:p-8 md:p-12 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xs:gap-5 md:gap-8 p-4 xs:p-5 sm:p-8 md:p-12 relative">
           {/* Left Content Section */}
           <motion.div
-            className="space-y-6 md:space-y-8"
+            className="space-y-4 xs:space-y-5 md:space-y-8"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
             <div>
               <motion.h2 
-                className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 mb-4"
+                className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 mb-3 xs:mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
                 {treatment?.title}
               </motion.h2>
-              <div className="flex flex-wrap gap-2 sm:gap-3">
-                <span className="px-3 sm:px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-xs sm:text-sm font-medium">
+              <div className="flex flex-wrap gap-2">
+                <span className="px-2 xs:px-3 sm:px-4 py-1 xs:py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-xs sm:text-sm font-medium">
                   Luxury Treatment
                 </span>
-                <span className="px-3 sm:px-4 py-1.5 bg-purple-50 text-purple-600 rounded-lg text-xs sm:text-sm font-medium">
+                <span className="px-2 xs:px-3 sm:px-4 py-1 xs:py-1.5 bg-purple-50 text-purple-600 rounded-lg text-xs sm:text-sm font-medium">
                   Premium Care
                 </span>
               </div>
             </div>
 
             <motion.p 
-              className="text-base sm:text-lg text-gray-600 leading-relaxed"
+              className="text-sm xs:text-base sm:text-lg text-gray-600 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -89,17 +82,17 @@ const Modal = ({ isOpen, onClose, treatment }) => {
             </motion.p>
 
             <motion.div 
-              className="flex flex-col gap-3 sm:gap-4"
+              className="flex flex-col gap-2 xs:gap-3 sm:gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
               <button
-                className="w-full px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.98] transition duration-300 flex items-center justify-center gap-2"
+                className="w-full px-6 xs:px-8 py-3 xs:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-sm xs:text-base font-semibold rounded-xl xs:rounded-2xl shadow-lg hover:shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.98] transition duration-300 flex items-center justify-center gap-2"
                 onClick={handleBookNow}
               >
                 <svg 
-                  className="w-5 h-5" 
+                  className="w-4 h-4 xs:w-5 xs:h-5" 
                   fill="currentColor" 
                   viewBox="0 0 24 24"
                 >
@@ -108,7 +101,7 @@ const Modal = ({ isOpen, onClose, treatment }) => {
                 Book Now on WhatsApp
               </button>
               <button
-                className="w-full px-8 py-4 bg-white/50 backdrop-blur border border-gray-200 text-gray-700 font-semibold rounded-2xl hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition duration-300"
+                className="w-full px-6 xs:px-8 py-3 xs:py-4 bg-white/50 backdrop-blur border border-gray-200 text-gray-700 text-sm xs:text-base font-semibold rounded-xl xs:rounded-2xl hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition duration-300"
                 onClick={onClose}
               >
                 Learn More
@@ -118,7 +111,7 @@ const Modal = ({ isOpen, onClose, treatment }) => {
 
           {/* Right Image Section */}
           <motion.div
-            className="relative h-[300px] sm:h-[400px] md:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden order-first md:order-last"
+            className="relative h-[200px] xs:h-[250px] sm:h-[400px] md:h-[600px] rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden order-first md:order-last"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
@@ -133,15 +126,15 @@ const Modal = ({ isOpen, onClose, treatment }) => {
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="flex items-center gap-4 text-white/90">
-                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <div className="absolute bottom-4 xs:bottom-6 sm:bottom-8 left-4 xs:left-6 sm:left-8 right-4 xs:right-6 sm:right-8">
+                <div className="flex items-center gap-3 xs:gap-4 text-white/90">
+                  <div className="w-10 h-10 xs:w-12 xs:h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                    <svg className="w-5 h-5 xs:w-6 xs:h-6" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   </div>
                   <div>
-                    <div className="text-sm font-medium">Premium Experience</div>
+                    <div className="text-xs xs:text-sm font-medium">Premium Experience</div>
                     <div className="text-xs text-white/70">Rated 4.9/5 by our clients</div>
                   </div>
                 </div>
@@ -152,14 +145,14 @@ const Modal = ({ isOpen, onClose, treatment }) => {
 
         {/* Close Button */}
         <motion.button
-          className="absolute top-4 right-4 sm:top-8 sm:right-8 bg-white/90 backdrop-blur text-gray-700 rounded-full p-2 sm:p-3 shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300"
+          className="absolute top-2 right-2 xs:top-4 xs:right-4 sm:top-8 sm:right-8 bg-white/90 backdrop-blur text-gray-700 rounded-full p-1.5 xs:p-2 sm:p-3 shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300"
           onClick={onClose}
           whileHover={{ rotate: 90 }}
           transition={{ duration: 0.2 }}
         >
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
-            className="h-5 w-5 sm:h-6 sm:w-6" 
+            className="h-4 w-4 xs:h-5 xs:w-5 sm:h-6 sm:w-6" 
             fill="none" 
             viewBox="0 0 24 24" 
             stroke="currentColor"

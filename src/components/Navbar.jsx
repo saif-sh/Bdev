@@ -25,7 +25,7 @@ const Navbar = () => {
 
   const DesktopNav = () => (
     <nav className="relative bg-[#E5E6E2] font-nunito font-semibold text-gray-800 text-[16px]">
-      <div className="mx-2 px-4 sm:px-6 lg:px-20 ">
+      <div className="mx-2 px-4 sm:px-6 lg:px-20">
         <div className="flex items-center justify-between h-24">
           {/* Flex container for navigation links and contact info */}
           <div className="flex items-center justify-between w-full mt-6">
@@ -42,6 +42,9 @@ const Navbar = () => {
               ))}
             </div>
 
+            {/* Invisible Center Div */}
+            <div className="size-[8rem] invisible shrink-0" />
+
             {/* Location and Contact Info */}
             <div className="flex items-center space-x-10 mr-6">
               <span className="flex items-center text-gray-700">
@@ -52,16 +55,18 @@ const Navbar = () => {
                 <Clock className="h-5 w-5 mr-2" />
                 11 AM - 10 PM
               </span>
-              <span className="flex items-center text-gray-700">
+              <span className="flex items-center">
                 <Phone className="h-5 w-5 mr-2" />
-                +91 98205 51300
+                <a href="tel:+919820551300" className="hover:underline">
+                  +91 98205 51300
+                </a>
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-[4.5rem] z-10">
+      <div className="absolute left-1/2 sm:left-[780px] md:left-[51%] transform -translate-x-1/2 -bottom-[4.5rem] z-10">
         <img
           className="size-[8rem] rounded-full shadow-lg"
           src={lghome}
@@ -74,7 +79,7 @@ const Navbar = () => {
   return isDesktop ? (
     <DesktopNav />
   ) : (
-    <MobileNavigation 
+    <MobileNavigation
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       navItems={navItems}
