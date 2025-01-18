@@ -198,12 +198,12 @@ const Hero = () => {
             className="absolute top-24 right-4 sm:right-8 md:right-12 z-20 hidden md:flex flex-col items-center gap-2
               text-[#F2D9B6] transition-opacity duration-300 ease-out"
           >
-            <p className="font-MonotypeCorsiva text-xl md:text-2xl rotate-90 mb-4
+            <p className="font-MongolianBaiti text-xl md:text-2xl rotate-90 mb-4
               tracking-wider [text-shadow:_1px_1px_2px_rgba(0,0,0,0.2)]">
               Scroll Up
             </p>
             <svg
-              className="w-6 h-6 rotate-[270deg] animate-bounce opacity-80"
+              className="mt-4 w-6 h-6 rotate-[270deg] animate-bounce opacity-80"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
