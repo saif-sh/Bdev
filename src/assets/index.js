@@ -15,9 +15,29 @@ import incard from "./incard.jpeg"
 import map from "./map.png"
 import cleopatra from "./cleopatra.jpeg"
 import splbv from "./splbv.jpg"
+import swedish from "./Swedishm.jpg"
+import balinese from "./Balinesem.jpg"
+import deept from "./DeepT.jpg"
+import aromat from "./Aromat.jpg"
+import fourh from "./Fourh.jpg"
+import thaid from "./Thaid.jpg"
+import herbp from "./Herbp.jpg"
+import footr from "./Footr.jpg"
+import couplesm from "./couplesm.jpg"
+import spcl from "./spcl.jpg"
 
 
 export{
+    spcl,
+    couplesm,
+    footr,
+    herbp,
+    thaid,
+    fourh,
+    aromat,
+    deept,
+    balinese,
+    swedish,
     splbv,
     cleopatra,
     map,
