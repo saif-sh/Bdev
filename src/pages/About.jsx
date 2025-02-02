@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Navdark, AbtHero, SpaBanner, Footer, OurMission, FloatingSocials, InstagramVisit } from '../components';
+import { Gallery, Navdark, AbtHero, SpaBanner, Footer, OurMission, FloatingSocials, InstagramVisit } from '../components';
 
 const About = () => {
   useEffect(() => {
@@ -31,6 +31,7 @@ const About = () => {
       <AbtHero />
       <SpaBanner />
       <OurMission />
+      <Gallery />
       <InstagramVisit />
       <Footer />
       <FloatingSocials />

@@ -16,8 +16,10 @@ import { default as SocialFeed } from './SocialFeed';
 import { default as InstagramVisit } from './InstagramVisit';
 import { default as AnnouncementBar } from './AnnouncementBar';
 import { default as MobileNavigation } from './MobileNavigation';
+import Gallery from "./Gallery";
 
 export{
+    Gallery,
     ContactForm,
     Navbl,
     TreatmentCard,

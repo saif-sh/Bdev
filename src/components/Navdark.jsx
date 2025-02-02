@@ -63,8 +63,8 @@ const Navdark = () => {
 
       <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-[4rem] z-10">
         <img
-          className=""
-          src={BVgl}
+          className="w-[5rem] h-[5rem] xs:w-[6rem] xs:h-[6rem] sm:w-[7rem] sm:h-[7rem] md:w-[8rem] md:h-[8rem] rounded-full shadow-lg transition-all duration-300"
+          src={lghome}
           alt="Bella Vida"
         />
       </div>
@@ -78,7 +78,7 @@ const Navdark = () => {
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       navItems={navItems}
-      logoSrc={BVgl}
+      logoSrc={lghome}
       bgColor="bg-[#343434]"
       textColor="text-[#D6BF90]"
     />

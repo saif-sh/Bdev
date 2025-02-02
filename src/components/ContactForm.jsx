@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { greenleaf1, pinkleaf1 } from "../assets";
 
 const ContactForm = () => {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+    formData.append("access_key", "713d290f-f741-49a2-b056-b1bc5faae18a");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        event.target.reset();
+      } else {
+        console.log("Error", data);
+        setResult(data.message);
+      }
+    } catch (error) {
+      console.log("Error", error);
+      setResult("Something went wrong!");
+    }
+  };
+
   return (
     <div className="relative flex items-center justify-center min-h-screen text-white mt-20 md:mt-40 pb-20">
       {/* Main Rounded Container */}
@@ -35,42 +64,71 @@ const ContactForm = () => {
         </motion.h1>
 
         {/* Form */}
-        <form className="relative z-10 flex flex-col gap-3 mx-4 md:mx-[248px]">
+        <form onSubmit={onSubmit} className="relative z-10 flex flex-col gap-3 mx-4 md:mx-[248px]">
           <motion.input
             type="text"
+            name="name"
             placeholder="NAME"
+            required
+            className="w-full h-14 md:h-20 px-4 md:px-6 py-2 md:py-3 border-2 border-black bg-transparent text-black placeholder-gray-700 text-base md:text-lg rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300"
+            whileFocus={{ scale: 1.02 }}
+          />
+          <motion.input
+            type="text"
+            name="subject"
+            placeholder="SUBJECT"
+            required
             className="w-full h-14 md:h-20 px-4 md:px-6 py-2 md:py-3 border-2 border-black bg-transparent text-black placeholder-gray-700 text-base md:text-lg rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300"
             whileFocus={{ scale: 1.02 }}
           />
           <motion.div className="flex flex-col md:flex-row gap-2">
             <motion.input
               type="email"
+              name="email"
               placeholder="EMAIL ADDRESS"
+              required
               className="w-full h-14 md:h-20 px-4 md:px-6 py-2 md:py-3 border-2 border-black bg-transparent text-black placeholder-gray-700 text-base md:text-lg rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300"
               whileFocus={{ scale: 1.02 }}
             />
             <motion.input
               type="tel"
+              name="phone"
               placeholder="PHONE NUMBER"
               className="w-full h-14 md:h-20 px-4 md:px-6 py-2 md:py-3 border-2 border-black bg-transparent text-black placeholder-gray-700 text-base md:text-lg rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300"
               whileFocus={{ scale: 1.02 }}
             />
           </motion.div>
           <motion.textarea
+            name="message"
             placeholder="MESSAGE"
+            required
             rows="6"
             className="w-full h-32 md:h-40 px-4 md:px-6 py-2 md:py-3 border-2 border-black bg-transparent text-black placeholder-gray-700 text-base md:text-lg rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-300 resize-none"
             whileFocus={{ scale: 1.02 }}
           />
 
+          {/* Status Message */}
+          {result && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className={`text-center ${
+                result === "Form Submitted Successfully" ? "text-green-600" : "text-red-600"
+              }`}
+            >
+              {result}
+            </motion.div>
+          )}
+
           {/* Submit Button */}
           <motion.button
             type="submit"
-            className="w-full h-14 md:h-20 py-2 md:py-4 bg-black text-white rounded-full flex items-center justify-center gap-2 text-2xl md:text-4xl font-regular font-serif hover:bg-gray-800 tracking-widest"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            disabled={result === "Sending...."}
+            className="w-full h-14 md:h-20 py-2 md:py-4 bg-black text-white rounded-full flex items-center justify-center gap-2 text-2xl md:text-4xl font-regular font-serif hover:bg-gray-800 tracking-widest disabled:bg-gray-600 disabled:cursor-not-allowed"
+            whileHover={{ scale: result === "Sending...." ? 1 : 1.05 }}
+            whileTap={{ scale: result === "Sending...." ? 1 : 0.95 }}
           >
-            SUBMIT <span>&rarr;</span>
+            {result === "Sending...." ? "SENDING..." : "SUBMIT"} <span>&rarr;</span>
           </motion.button>
         </form>
       </motion.div>
