@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaInstagram, FaHeart, FaComment } from 'react-icons/fa';
-import { coupost, maspost1, maspost2 } from '../assets';
+import { Coupost, maspost1, maspost2 } from '../assets';
 
 const SocialFeed = () => {
   const [posts, setPosts] = useState([]);
@@ -11,7 +11,7 @@ const SocialFeed = () => {
   const mockPosts = [
     {
       id: 1,
-      image: coupost,
+      image: Coupost,
       likes: 10,
       comments: 1,
       caption: "Experience pure bliss with our signature massage treatment ✨ #luxuryspa #wellness",

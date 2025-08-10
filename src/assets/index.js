@@ -8,7 +8,7 @@ import pinkleaf from "./pink-leaf.svg"
 import BVgl from "./BVgl.png"
 import greenleaf1 from "./greenleaf1.svg"
 import pinkleaf1 from "./pinkleaf1.svg"
-import coupost from "./Coupost.png"
+import Coupost from "./Coupost.png"
 import maspost1 from "./maspost1.png"
 import maspost2 from "./maspost2.png"
 import incard from "./incard.jpeg"
@@ -44,7 +44,7 @@ export{
     incard,
     maspost2,
     maspost1,
-    coupost,
+    Coupost,
     greenleaf1,
     pinkleaf1,
     BVgl,
