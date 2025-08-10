@@ -17,7 +17,7 @@ import cleopatra from "./cleopatra.jpeg"
 import splbv from "./splbv.jpg"
 import swedish from "./Swedishm.jpg"
 import balinese from "./Balinesem.jpg"
-import deept from "./DeepT.jpg"
+import DeepT from "./DeepT.jpg"
 import aromat from "./Aromat.jpg"
 import fourh from "./Fourh.jpg"
 import thaid from "./Thaid.jpg"
@@ -35,7 +35,7 @@ export{
     thaid,
     fourh,
     aromat,
-    deept,
+    DeepT,
     balinese,
     swedish,
     splbv,

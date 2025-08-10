@@ -1,6 +1,6 @@
 // data.js
 
-import { aromat, balinese,cleopatra,deept,footr,fourh,herbp,swedish, thaid, couplesm, spcl } from "../assets";
+import { aromat, balinese,cleopatra,DeepT,footr,fourh,herbp,swedish, thaid, couplesm, spcl } from "../assets";
 
 
 const treatments = [
@@ -29,7 +29,7 @@ const treatments = [
     title: "Deep Tissue Massage",
     description: "Relieves pain, tension and promotes recovery",
     detailedDescription: "This intensive therapy targets deeper layers of muscles and connective tissues using firm pressure and slow strokes. Ideal for relieving chronic pain, muscle tension, and stiffness, it enhances mobility, promotes circulation, and aids in recovery from physical strain.",
-    image: deept,
+    image: DeepT,
     category: "HARD",
     price: 220,
     duration: 90
