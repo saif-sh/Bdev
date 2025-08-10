@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { TreatmentCard, Navbl, Footer, FloatingSocials, InstagramVisit } from "../components";
+import { TreatmentCard, Navbl, Footer, FloatingSocials, InstagramVisit, AnnouncementBar } from "../components";
 import treatments from "../components/data.js";
 import Modal from "../components/Modal";
 
@@ -36,9 +36,11 @@ const Treatments = () => {
 
   return (
     <div>
-      <div className="bg-[#DADBD5] text-gray-900 pt-3">
+      <AnnouncementBar />
+      <div className="bg-[#DADBD5] text-gray-900">
         <Navbl />
-        <div className="max-w-7xl mx-auto mt-16 md:mt-24 px-4 md:px-0">
+        {/* Reduced top margin from mt-16 md:mt-24 to mt-4 md:mt-16 */}
+        <div className="max-w-7xl mx-auto mt-2 md:mt-16 px-4 md:px-0">
           {/* Header Section */}
           <motion.h1
             className="text-4xl md:text-6xl font-serif"

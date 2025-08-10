@@ -1,4 +1,4 @@
-import  lghome from "./lghome.png"
+import lghome from "./lghome.png"
 import heroimg from "./heroimg.png"
 import massagebg from "./massages.svg"
 import footerlogo from "./footerlogo.png"

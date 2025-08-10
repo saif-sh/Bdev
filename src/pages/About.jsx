@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Gallery, Navdark, AbtHero, SpaBanner, Footer, OurMission, FloatingSocials, InstagramVisit } from '../components';
+import { Gallery, Navdark, AbtHero, SpaBanner, Footer, OurMission, FloatingSocials, InstagramVisit, AnnouncementBar } from '../components';
 
 const About = () => {
   useEffect(() => {
@@ -27,6 +27,7 @@ const About = () => {
 
   return (
     <div className="about-page bg-[#333333] min-h-screen">
+      <AnnouncementBar />
       <Navdark />
       <AbtHero />
       <SpaBanner />

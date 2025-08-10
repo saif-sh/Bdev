@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Phone, MapPin, Clock } from "lucide-react";
-import { lghome ,BVgl} from "../assets";
+import { Phone, MapPin, Clock } from "lucide-react";
+import { lghome } from "../assets";
 import MobileNavigation from './MobileNavigation';
 
 const Navdark = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
+    const checkScreenSize = () => {
       setIsDesktop(window.innerWidth >= 1024);
     };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
   const navItems = [
@@ -24,25 +25,29 @@ const Navdark = () => {
   ];
 
   const DesktopNav = () => (
-    <nav className="relative bg-[#333333] font-nunito font-semibold text-gray-800 text-[16px]">
-      <div className="mx-2 px-4 sm:px-6 lg:px-20 ">
-        <div className="flex items-center   justify-between h-24">
-          {/* Flex container for navigation links and contact info */}
+    <nav className="relative bg-[#333333] font-nunito font-semibold text-[#D6BF90]">
+      <div className="mx-2 px-4 sm:px-6 lg:px-20">
+        <div className="flex items-center justify-between h-24">
           <div className="flex items-center justify-between w-full mt-6">
-            {/* Navigation Items */}
+            {/* Navigation Links - Left */}
             <div className="flex items-start space-x-6">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className=" hover:underline hover:decoration-2 text-[#D6BF90] px-6 py-3 rounded-md font-semibold"
+                  className="text-[#D6BF90] hover:underline hover:decoration-2 
+                           px-6 py-3 rounded-md font-semibold text-[16px]
+                           transition-all duration-300 ease-in-out"
                 >
                   {item.name}
                 </a>
               ))}
             </div>
 
-            {/* Location and Contact Info */}
+            {/* Logo Spacer */}
+            <div className="size-[8rem] invisible shrink-0" />
+
+            {/* Contact Information - Right */}
             <div className="flex items-center space-x-10 mr-6">
               <span className="flex items-center text-[#D6BF90]">
                 <MapPin className="h-5 w-5 mr-2" />
@@ -54,16 +59,19 @@ const Navdark = () => {
               </span>
               <span className="flex items-center text-[#D6BF90]">
                 <Phone className="h-5 w-5 mr-2" />
-                +91 9981345670
+                <a href="tel:+919981345670" className="hover:underline transition-colors duration-200">
+                  +91 9981345670
+                </a>
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-[4rem] z-10">
+      {/* Centered Logo */}
+      <div className="absolute left-1/2 sm:left-[780px] md:left-[51%] transform -translate-x-1/2 -bottom-[4.5rem] z-10">
         <img
-          className="w-[5rem] h-[5rem] xs:w-[6rem] xs:h-[6rem] sm:w-[7rem] sm:h-[7rem] md:w-[8rem] md:h-[8rem] rounded-full shadow-lg transition-all duration-300"
+          className="size-[8rem] rounded-full shadow-lg transition-all duration-300 hover:scale-105"
           src={lghome}
           alt="Bella Vida"
         />
@@ -74,7 +82,7 @@ const Navdark = () => {
   return isDesktop ? (
     <DesktopNav />
   ) : (
-    <MobileNavigation 
+    <MobileNavigation
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       navItems={navItems}

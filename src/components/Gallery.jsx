@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Maximize2 } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Maximize2, X } from 'lucide-react';
 import { aromat, balinese, cleopatra, couplesm, herbp, spcl, swedish, thaid } from '../assets';
 
-const Gallery = () => {
+const Gallery = ({  }) => {
   const fullImageCollection = [
     { 
       src: cleopatra, 
@@ -63,129 +63,268 @@ const Gallery = () => {
   ];
 
   const bentoConfigurations = [
-    // Configuration 1: Balanced Full Coverage Layout
-    [
-      { size: 'col-span-4 row-span-3', aspectRatio: 'aspect-[16/9]', prominence: 'primary' },
-      { size: 'col-span-2 row-span-2', aspectRatio: 'aspect-square', prominence: 'secondary' },
-      { size: 'col-span-2 row-span-1', aspectRatio: 'aspect-[2/1]', prominence: 'tertiary' },
-      { size: 'col-span-1', aspectRatio: 'aspect-[4/3]', prominence: 'accent' },
-      { size: 'col-span-1', aspectRatio: 'aspect-[3/4]', prominence: 'accent' }
-    ],
-  
-    // Configuration 2: Dynamic Spatial Harmony
-    [
-      { size: 'col-span-3 row-span-3', aspectRatio: 'aspect-[4/3]', prominence: 'hero' },
-      { size: 'col-span-1 row-span-2', aspectRatio: 'aspect-[3/7]', prominence: 'secondary' },
-      { size: 'col-span-2 row-span-1', aspectRatio: 'aspect-video', prominence: 'tertiary' },
-      { size: 'col-span-1 row-span-1', aspectRatio: 'aspect-square', prominence: 'accent' },
-      { size: 'col-span-1', aspectRatio: 'aspect-[16/9]', prominence: 'accent' }
-    ],
-  
-    // Configuration 3: Elegant Asymmetric Coverage
-    [
-      { size: 'col-span-4 row-span-2', aspectRatio: 'aspect-[2/1]', prominence: 'primary' },
-      { size: 'col-span-1 row-span-2', aspectRatio: 'aspect-[3/4]', prominence: 'secondary' },
-      { size: 'col-span-2 row-span-1', aspectRatio: 'aspect-video', prominence: 'tertiary' },
-      { size: 'col-span-1', aspectRatio: 'aspect-square', prominence: 'accent' }
-    ]
+    // Configuration 1: Full Coverage Hero Layout
+    {
+      desktop: [
+        { gridArea: '1 / 1 / 3 / 3', height: '320px' }, // Large hero
+        { gridArea: '1 / 3 / 2 / 5', height: '154px' }, // Wide top right
+        { gridArea: '2 / 3 / 3 / 4', height: '154px' }, // Square middle right
+        { gridArea: '2 / 4 / 3 / 5', height: '154px' }, // Square bottom right
+        { gridArea: '3 / 1 / 4 / 3', height: '154px' }, // Wide bottom left
+        { gridArea: '3 / 3 / 4 / 5', height: '154px' }  // Wide bottom right
+      ],
+      mobile: [
+        { gridArea: '1 / 1 / 3 / 3', height: '280px' }, // Large hero
+        { gridArea: '3 / 1 / 4 / 2', height: '140px' }, // Square left
+        { gridArea: '3 / 2 / 4 / 3', height: '140px' }, // Square right
+        { gridArea: '4 / 1 / 5 / 3', height: '120px' }, // Wide bottom
+        { gridArea: '5 / 1 / 6 / 2', height: '140px' }, // Square left
+        { gridArea: '5 / 2 / 6 / 3', height: '140px' }  // Square right
+      ]
+    },
+    
+    // Configuration 2: Asymmetric Full Grid
+    {
+      desktop: [
+        { gridArea: '1 / 1 / 2 / 3', height: '154px' }, // Wide top left
+        { gridArea: '1 / 3 / 2 / 5', height: '154px' }, // Wide top right
+        { gridArea: '2 / 1 / 4 / 2', height: '320px' }, // Tall left
+        { gridArea: '2 / 2 / 3 / 4', height: '154px' }, // Wide middle
+        { gridArea: '3 / 2 / 4 / 3', height: '154px' }, // Square bottom middle
+        { gridArea: '2 / 4 / 4 / 5', height: '320px' }  // Tall right
+      ],
+      mobile: [
+        { gridArea: '1 / 1 / 2 / 3', height: '120px' }, // Wide top
+        { gridArea: '2 / 1 / 4 / 2', height: '280px' }, // Tall left
+        { gridArea: '2 / 2 / 3 / 3', height: '140px' }, // Square top right
+        { gridArea: '3 / 2 / 4 / 3', height: '140px' }, // Square middle right
+        { gridArea: '4 / 1 / 5 / 3', height: '120px' }, // Wide bottom
+        { gridArea: '5 / 1 / 6 / 3', height: '120px' }  // Wide bottom 2
+      ]
+    },
+
+    // Configuration 3: Mosaic Complete Grid
+    {
+      desktop: [
+        { gridArea: '1 / 1 / 3 / 2', height: '320px' }, // Tall left
+        { gridArea: '1 / 2 / 2 / 4', height: '154px' }, // Wide top center
+        { gridArea: '1 / 4 / 3 / 5', height: '320px' }, // Tall right
+        { gridArea: '2 / 2 / 3 / 3', height: '154px' }, // Square bottom center left
+        { gridArea: '2 / 3 / 3 / 4', height: '154px' }, // Square bottom center right
+        { gridArea: '3 / 1 / 4 / 5', height: '154px' }  // Wide bottom full
+      ],
+      mobile: [
+        { gridArea: '1 / 1 / 3 / 2', height: '280px' }, // Tall left
+        { gridArea: '1 / 2 / 2 / 3', height: '140px' }, // Square top right
+        { gridArea: '2 / 2 / 3 / 3', height: '140px' }, // Square middle right
+        { gridArea: '3 / 1 / 4 / 3', height: '120px' }, // Wide center
+        { gridArea: '4 / 1 / 5 / 2', height: '140px' }, // Square bottom left
+        { gridArea: '4 / 2 / 5 / 3', height: '140px' }  // Square bottom right
+      ]
+    },
+
+    // Configuration 4: Balanced Grid Layout
+    {
+      desktop: [
+        { gridArea: '1 / 1 / 2 / 3', height: '154px' }, // Wide top left
+        { gridArea: '1 / 3 / 3 / 4', height: '320px' }, // Tall center
+        { gridArea: '1 / 4 / 2 / 5', height: '154px' }, // Square top right
+        { gridArea: '2 / 1 / 3 / 2', height: '154px' }, // Square middle left
+        { gridArea: '2 / 2 / 3 / 3', height: '154px' }, // Square middle center
+        { gridArea: '2 / 4 / 3 / 5', height: '154px' }  // Square middle right
+      ],
+      mobile: [
+        { gridArea: '1 / 1 / 2 / 3', height: '120px' }, // Wide top
+        { gridArea: '2 / 1 / 4 / 2', height: '280px' }, // Tall left
+        { gridArea: '2 / 2 / 3 / 3', height: '140px' }, // Square top right
+        { gridArea: '3 / 2 / 4 / 3', height: '140px' }, // Square bottom right
+        { gridArea: '4 / 1 / 5 / 3', height: '120px' }, // Wide bottom
+        { gridArea: '5 / 1 / 6 / 3', height: '120px' }  // Wide bottom full
+      ]
+    }
   ];
 
-  const [currentImages, setCurrentImages] = useState([]);
+  const [currentLayout, setCurrentLayout] = useState([]);
   const [expandedImage, setExpandedImage] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const selectBentoImages = () => {
-    const shuffled = fullImageCollection.sort(() => 0.5 - Math.random()).slice(0, 5);
+  // Optimized shuffle function
+  const shuffleArray = useCallback((array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }, []);
+
+  // Generate new layout
+  const generateLayout = useCallback(() => {
+    setIsLoading(true);
+    
+    const shuffledImages = shuffleArray(fullImageCollection);
     const randomConfig = bentoConfigurations[Math.floor(Math.random() * bentoConfigurations.length)];
-
-    return shuffled.map((image, index) => ({
+    const layout = isMobile ? randomConfig.mobile : randomConfig.desktop;
+    
+    const newLayout = shuffledImages.slice(0, layout.length).map((image, index) => ({
       ...image,
-      ...randomConfig[index % randomConfig.length]
+      ...layout[index],
+      id: `${Date.now()}-${index}`
     }));
-  };
+    
+    setCurrentLayout(newLayout);
+    
+    // Simulate loading delay for smooth transition
+    setTimeout(() => setIsLoading(false), 300);
+  }, [shuffleArray, isMobile]);
+
+  // Handle resize
+  const handleResize = useCallback(() => {
+    const mobile = window.innerWidth < 768;
+    if (mobile !== isMobile) {
+      setIsMobile(mobile);
+    }
+  }, [isMobile]);
+
+  // Effects
+  useEffect(() => {
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [handleResize]);
 
   useEffect(() => {
-    const updateImages = () => {
-      setCurrentImages(selectBentoImages());
-    };
+    generateLayout();
+  }, [generateLayout]);
 
-    updateImages();
-    const intervalId = setInterval(updateImages, 20000);
-    window.addEventListener('resize', updateImages);
+  useEffect(() => {
+    const interval = setInterval(generateLayout, 15000);
+    return () => clearInterval(interval);
+  }, [generateLayout]);
 
-    return () => {
-      clearInterval(intervalId);
-      window.removeEventListener('resize', updateImages);
+  // Close modal on escape
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') setExpandedImage(null);
     };
-  }, []);
+    
+    if (expandedImage) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.removeEventListener('keydown', handleEscape);
+        document.body.style.overflow = 'unset';
+      };
+    }
+  }, [expandedImage]);
 
   return (
     <div className="bg-transparent py-12 px-4">
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <h2 className="text-4xl font-semibold font-MongolianBaiti text-white mb-12 text-center tracking-wider opacity-80">
           Sanctuary Moments
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
-          {currentImages.map((image, index) => (
-            <div 
-              key={index} 
-              className={`
-                ${image.size} 
-                ${image.aspectRatio}
-                relative group overflow-hidden rounded-2xl 
-                transition-all duration-300 
-                hover:shadow-xl
-                hover:scale-[1.02]
-              `}
-            >
-              {image.textOverlay && (
-                <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6 text-white">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h3 className="text-xl font-light mb-2">{image.alt}</h3>
-                    <p className="text-sm opacity-80">{image.mood} {image.category}</p>
-                  </div>
-                </div>
-              )}
-
-              <div className="absolute inset-0 z-10 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <button 
-                  onClick={() => setExpandedImage(image)}
-                  className="bg-white/60 hover:bg-white/80 p-3 rounded-full mr-4 transition-all"
-                >
-                  <Maximize2 className="text-gray-700" size={20} />
-                </button>
+        {/* Gallery Grid */}
+        <div className="relative">
+          {isLoading && (
+            <div className="absolute inset-0 bg-slate-800/50 backdrop-blur-sm z-10 flex items-center justify-center rounded-2xl">
+              <div className="flex space-x-2">
+                {[...Array(3)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-2 h-2 bg-white rounded-full animate-pulse"
+                    style={{ animationDelay: `${i * 0.2}s` }}
+                  />
+                ))}
               </div>
-
-              <img 
-                src={image.src} 
-                alt={image.alt}
-                className="w-full h-full object-cover rounded-2xl"
-              />
             </div>
-          ))}
+          )}
+          
+          <div 
+            className={`
+              grid gap-4 transition-opacity duration-300
+              ${isMobile 
+                ? 'grid-cols-2 auto-rows-min' 
+                : 'grid-cols-4 auto-rows-min'
+              }
+              ${isLoading ? 'opacity-50' : 'opacity-100'}
+            `}
+            style={{
+              gridTemplateRows: isMobile ? 'repeat(6, minmax(120px, auto))' : 'repeat(3, minmax(154px, auto))'
+            }}
+          >
+            {currentLayout.map((image, index) => (
+              <div
+                key={image.id}
+                className="
+                  relative group overflow-hidden rounded-2xl
+                  transition-all duration-300 ease-out
+                  hover:scale-[1.02] hover:shadow-xl
+                  cursor-pointer
+                "
+                style={{ 
+                  gridArea: image.gridArea,
+                  height: image.height
+                }}
+                onClick={() => setExpandedImage(image)}
+              >
+                {/* Image */}
+                <img 
+                  src={image.src} 
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-2xl"
+                  loading="lazy"
+                />
+                
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl">
+                  <button 
+                    className="bg-white/60 hover:bg-white/80 p-3 rounded-full transition-all"
+                  >
+                    <Maximize2 className="text-gray-700" size={20} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {expandedImage && (
-          <div 
-            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-8"
-            onClick={() => setExpandedImage(null)}
+        {/* Manual Refresh Button */}
+        <div className="text-center mt-12">
+          <button
+            onClick={generateLayout}
+            disabled={isLoading}
+            className="px-6 py-2 bg-white/20 hover:bg-white/30 text-white rounded-full transition-all duration-300 disabled:opacity-50"
           >
-            <div className="max-w-6xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl relative">
-              <img 
-                src={expandedImage.src} 
-                alt={expandedImage.alt}
-                className="w-full h-full object-contain"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
-                <h3 className="text-2xl font-light">{expandedImage.alt}</h3>
-                <p className="text-sm opacity-80">
-                  {expandedImage.mood} {expandedImage.category}
-                </p>
-              </div>
+            {isLoading ? 'Refreshing...' : 'Refresh Layout'}
+          </button>
+        </div>
+      </div>
+
+      {/* Expanded Image Modal */}
+      {expandedImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-8"
+          onClick={() => setExpandedImage(null)}
+        >
+          <div className="max-w-6xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl relative">
+            <img 
+              src={expandedImage.src} 
+              alt={expandedImage.alt}
+              className="w-full h-full object-contain"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
+              <h3 className="text-2xl font-light">{expandedImage.alt}</h3>
+              <p className="text-sm opacity-80">
+                {expandedImage.mood} {expandedImage.category}
+              </p>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

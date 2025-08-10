@@ -108,7 +108,7 @@ const AbtHero = () => {
             <span className="font-medium italic">Wellness</span> and{" "}
             <span className="font-medium italic">Serenity</span>
           </motion.p>
-  
+
           <motion.div
             className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6"
             variants={textVariants}

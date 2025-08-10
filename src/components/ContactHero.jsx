@@ -63,7 +63,7 @@ const ContactHero = () => {
       animate={isInView ? "visible" : "hidden"}
     >
       <motion.h1
-        className="text-7xl md:text-9xl font-MongolianBaiti text-[#333333] mb-4"
+        className="text-4xl md:text-9xl font-MongolianBaiti text-[#333333] mb-4"
         variants={titleVariants}
       >
         CONTACT US
