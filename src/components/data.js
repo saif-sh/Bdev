@@ -1,6 +1,6 @@
 // data.js
 
-import { aromat, balinese,cleopatra,DeepT,footr,fourh,herbp,swedish, thaid, couplesm, spcl } from "../assets";
+import { aromat, balinese,cleopatra,DeepT,footr,fourh,herbp,swedish, thaid, couplesm, spcl, Valroom2, Scrub, swedmass1, swedmass } from "../assets";
 
 
 const treatments = [
@@ -9,7 +9,7 @@ const treatments = [
     title: "Swedish Massage",
     description: "Light pressure, improves circulation, relaxes tension",
     detailedDescription: "This traditional technique uses light to medium pressure with long kneading and gliding strokes. Swedish massage is designed to enhance oxygen levels in the body, improve blood circulation, and relieve tension, promoting deep relaxation and overall well-being.",
-    image: swedish,
+    image: swedmass1,
     category: "LIGHT",
     price: 100,
     duration: 60
@@ -19,7 +19,7 @@ const treatments = [
     title: "Balinese Massage",
     description: "Combining streches, pressures and oils",
     detailedDescription: "A harmonious blend of gentle stretches, acupressure, reflexology, and aromatherapy, this massage stimulates circulation, oxygen flow, and energy throughout your body. Techniques like kneading, skin rolling, and pressure point stimulation, combined with essential oils, create a deeply relaxing experience that restores balance and promotes a sense of calm.",
-    image: balinese,
+    image: swedmass,
     category: "MEDIUM",
     price: 120,
     duration: 60
@@ -49,7 +49,7 @@ const treatments = [
     title: "Bella Vida Signature Massage",
     description: "Enhances Glow,Relaxation & Rejuvenation",
     detailedDescription: "This is a massage that will brighten your royal aura and bring to you that special internal glow of well being accompanied by a radiant and glowing appearance on the outside an exclusive body scrub will be given to you after the end of the massage.",
-    image: spcl,
+    image: Scrub,
     category: ["SPECIAL","SCRUB"],
     price: 90,
     duration: 45
@@ -109,7 +109,7 @@ const treatments = [
     title: "Couples Therapeutic Massage",
     description: "Couples massage for relaxation and rejuvenation",
     detailedDescription: "Immerse yourselves in a deeply relaxing experience with a side-by-side therapeutic massage designed for couples. This intimate treatment eases tension, relieves stress, and enhances connection, providing both physical rejuvenation and emotional harmony. Let the soothing touch of skilled therapists create a tranquil atmosphere where you and your partner can unwind, reconnect, and leave feeling completely refreshed.",
-    image: couplesm,
+    image: Valroom2,
     category: "COUPLES",
     price: 115,
     duration: 90

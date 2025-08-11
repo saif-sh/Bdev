@@ -25,9 +25,28 @@ import herbp from "./Herbp.jpg"
 import footr from "./Footr.jpg"
 import couplesm from "./couplesm.jpg"
 import spcl from "./spcl.jpg"
-
+import Dobroom from "./Dobroom.jpg"
+import Roblog from "./Roblog.jpg"
+import Sinroom from "./Sinroom.jpg"
+import Valroom2 from "./Valroom2.jpg"
+import Valroom from "./Valroom.jpg"
+import Front from "./Front.jpg"
+import Amtree from "./Amtree.jpg"
+import Scrub from "./Scrub.jpg"
+import swedmass1 from "./swedmass1.jpg"
+import swedmass from "./swedmass.jpg"
 
 export{
+    swedmass,
+    swedmass1,
+    Scrub,
+    Amtree,
+    Front,
+    Valroom,
+    Valroom2,
+    Sinroom,
+    Roblog,
+    Dobroom,
     spcl,
     couplesm,
     footr,

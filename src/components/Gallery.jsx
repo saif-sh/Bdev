@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Maximize2, X } from 'lucide-react';
-import { aromat, balinese, cleopatra, couplesm, herbp, spcl, swedish, thaid } from '../assets';
+import { Amtree, aromat, balinese, cleopatra, couplesm, Dobroom, Front, herbp, Roblog, Sinroom, spcl, swedish, thaid, Valroom, Valroom2 } from '../assets';
 
 const Gallery = ({  }) => {
   const fullImageCollection = [
@@ -12,49 +12,49 @@ const Gallery = ({  }) => {
       tags: ['treatment', 'calm']
     },
     { 
-      src: spcl, 
+      src: Amtree, 
       alt: 'Zen Relaxation Lounge', 
       category: 'wellness',
       mood: 'peaceful',
       tags: ['lounge', 'relaxation']
     },
     { 
-      src: swedish, 
+      src: Sinroom, 
       alt: 'Massage Sanctuary', 
       category: 'therapy',
       mood: 'healing',
       tags: ['massage', 'healing']
     },
     { 
-      src: balinese, 
+      src: Valroom, 
       alt: 'Aromatherapy Corner', 
       category: 'wellness',
       mood: 'refreshing',
       tags: ['aromatherapy', 'sensory']
     },
     { 
-      src: herbp, 
+      src: Valroom2, 
       alt: 'Wellness Courtyard', 
       category: 'exterior',
       mood: 'natural',
       tags: ['outdoor', 'garden']
     },
     { 
-      src: couplesm, 
+      src: Dobroom, 
       alt: 'Meditation Space', 
       category: 'interior',
       mood: 'mindful',
       tags: ['meditation', 'peaceful']
     },
     { 
-      src: thaid, 
+      src: Roblog, 
       alt: 'Herbal Steam Room', 
       category: 'therapy',
       mood: 'cleansing',
       tags: ['steam', 'detox']
     },
     { 
-      src: aromat, 
+      src: Front, 
       alt: 'Hydration Lounge', 
       category: 'wellness',
       mood: 'rejuvenating',
